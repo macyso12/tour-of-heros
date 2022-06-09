@@ -1,0 +1,17 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+  <!--for product in products, executive once for each product-->
+  <h3>
+    <a [title]="product.name + ' details'">
+      <!--dynamically create a name call "product"-->
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">Description: {{ product.description }}</p>
+  <button type="button" (click)="share()">Share</button>
+
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
+</div>
